@@ -20,7 +20,7 @@ const Modal = ({children, title, isOpen, onClose}) => {
         return () => {
             document.removeEventListener('keydown', handleEscClose);
         }
-    }, [onClose, handleEscClose]);
+    }, [onClose]);
 
     return createPortal(<div className={`${moduleStyles.modal} ${isOpen && moduleStyles.modal_opened}`}>
         <div className={moduleStyles.container}>
