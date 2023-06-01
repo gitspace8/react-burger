@@ -1,0 +1,21 @@
+.container {
+    display: grid;
+    grid-template-columns: max-content;
+    gap: calc(var(--offset-base-size)  * 4);
+    max-height: calc(80px * 4 + 3 * 16px);
+    overflow-y: scroll;
+    cursor: grab;
+}
+
+.container:active {
+    cursor: grabbing;
+
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 568px;
+}

@@ -1,0 +1,13 @@
+.mainContainer {
+    max-width: 600px;
+    flex-direction: row;
+}
+
+.ingredientsContainer {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: calc(100vh - 400px);
+    max-width: max-content;
+}
+
+

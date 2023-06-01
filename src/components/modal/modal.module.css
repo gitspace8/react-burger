@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+    min-height: 539px;
+    background-color: var(--background);
+    border-radius: var(--common-border-radius-s);
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 15vh;
+    left: calc((100vw - 720px) / 2)
+}
+
+.modal_opened {
+    display: flex;
+}
+
+.button {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+
