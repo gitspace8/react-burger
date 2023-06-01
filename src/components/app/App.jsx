@@ -18,7 +18,7 @@ const App = () => {
             .then(({data}) => setState((prevState) => ({
                 ...prevState, isLoading: false, hasError: false, ingredients: data,
             })),)
-            .catch((error) => setState((prevState) => ({
+            .catch(() => setState((prevState) => ({
                 ...prevState, isLoading: false, hasError: true,
             })),)
     }, [])
