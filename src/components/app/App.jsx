@@ -4,7 +4,7 @@ import AppHeader from "../app-header/AppHeader";
 import BurgerIngredients from "../burger-ingredients/BurgerIngredients";
 import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 import Margin from "../margin/Margin";
-import {url} from "../../utils/config";
+import {getRemoteData} from "../../utils/remote-api";
 
 const App = () => {
 
@@ -12,20 +12,19 @@ const App = () => {
         isLoading: true, hasError: false, ingredients: [],
     })
 
-    useEffect(() => {
-        getData()
-    }, [])
-
-    const getData = () => {
-        fetch(url)
-            .then((res) => res.ok ? res.json() : res.json().then((err) => Promise.reject(err)))
+    const handleRemoteData = () => {
+        getRemoteData()
             .then(({data}) => setState((prevState) => ({
                 ...prevState, isLoading: false, hasError: false, ingredients: data,
             })),)
-            .catch(() => setState((prevState) => ({
+            .catch((err) => setState((prevState) => ({
                 ...prevState, isLoading: false, hasError: true,
             })),)
-    }
+    };
+
+    useEffect(() => {
+        handleRemoteData()
+    }, [])
 
 
     const {ingredients, isLoading, hasError} = state
