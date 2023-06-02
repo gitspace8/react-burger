@@ -9,12 +9,12 @@ import {Button, ConstructorElement, CurrencyIcon} from "@ya.praktikum/react-deve
 
 const BurgerConstructor = ({ingredients}) => {
 
-    // цена как в фигме
-    let totalCost = 610
-    // вручную выбираем булку
-    const bunStatic = ingredients.find((ingredient) => ingredient._id === '643d69a5c3f7b9001cfa093c',)
-
+    // вручную выбираем булку, используем useMemo/useCallback что бы кэшировать
+    const bunStatic = React.useMemo(() => ingredients.find((ingredient) => ingredient._id === '643d69a5c3f7b9001cfa093c'), [ingredients])
     const {name, price, image} = bunStatic
+    // считаем 2 булки статик + все элементы
+    let totalCost = (bunStatic.price * 2);
+    ingredients.forEach((item) => totalCost += item.price)
     const [isOpen, setIsOpen] = React.useState(false)
     const handleCloseModal = () => {
         setIsOpen(false)
@@ -66,5 +66,5 @@ const BurgerConstructor = ({ingredients}) => {
 export default BurgerConstructor
 
 BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropTypes).isRequired,
+    ingredients: PropTypes.arrayOf(ingredientPropTypes.isRequired).isRequired,
 }

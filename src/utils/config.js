@@ -6,3 +6,4 @@ export const INGREDIENTS_TITLES = {
 };
 export const TAB_ENABLE = false;
 export const KEY = 'Escape';
+export const url = 'https://norma.nomoreparties.space/api/ingredients';

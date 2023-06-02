@@ -13,17 +13,15 @@ const BurgerIngredients = ({ingredients}) => {
     const sauceRef = React.useRef(null);
     const mainRef = React.useRef(null);
 
-    const bun = ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.BUN);
-    const sauce = ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.SAUCE);
-    const main = ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.MAIN);
+    const bun = React.useMemo(() => ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.BUN), [ingredients]);
+    const sauce = React.useMemo(() => ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.SAUCE), [ingredients]);
+    const main = React.useMemo(() => ingredients.filter((ingredient) => ingredient.type === INGREDIENT_TYPE.MAIN), [ingredients]);
 
-    const [selectedIngredient, setSelectedIngredient] = React.useState({});
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [selectedIngredient, setSelectedIngredient] = React.useState(null);
     const [current, setCurrent] = React.useState(INGREDIENTS_TITLES.BUN);
 
     function handleCloseModal() {
-        setIsOpen(false);
-        setSelectedIngredient({});
+        setSelectedIngredient(null);
     }
 
     function handleTabClick(tab) {
@@ -46,7 +44,6 @@ const BurgerIngredients = ({ingredients}) => {
     }
 
     function handleIngredientClick(ingredient) {
-        setIsOpen(true);
         setSelectedIngredient(ingredient);
     }
 
@@ -61,9 +58,9 @@ const BurgerIngredients = ({ingredients}) => {
             <p className="text text_type_main-medium" ref={mainRef}>{INGREDIENTS_TITLES.MAIN}</p>
             <IngrList ingredients={main} onSelect={handleIngredientClick}/>
         </div>
-        <Modal title='Детали ингредиента' isOpen={isOpen} onClose={handleCloseModal}>
+        {selectedIngredient ? (<Modal title='Детали ингредиента' isOpen={true} onClose={handleCloseModal}>
             <IngrDetail ingredient={selectedIngredient}/>
-        </Modal>
+        </Modal>) : null}
     </section>);
 }
 

@@ -33,3 +33,4 @@
 ## Окружение<br>
 
 - Как правильно настроить линтер и форматтер для проекта на React - https://dev.to/eprikhodko/eslint-prettier-vs-code-create-react-app-airbnb-52bc#eslint-%D0%B2-create-react-app
+- Joshw Comeau useState useMemo - https://www.joshwcomeau.com/react/usememo-and-usecallback/
