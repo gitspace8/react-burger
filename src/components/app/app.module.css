@@ -1,0 +1,23 @@
+.main {
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top: 2%;
+    bottom: 2%;
+    font-family: "JetBrainsMono", Arial, sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 16px 20px;
+}
+.title {
+    max-width: 1180px;
+    margin: 0 auto 5px;
+}

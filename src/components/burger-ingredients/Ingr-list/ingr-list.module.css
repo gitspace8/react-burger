@@ -1,0 +1,7 @@
+.list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: calc(var(--offset-base-size)  * 8) calc(var(--offset-base-size)  * 6);
+}

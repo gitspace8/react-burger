@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Проект react-bruger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Набор линков по проекту
 
-## Available Scripts
+1. Описание библиотеки UI к проекту - https://github.com/Yandex-Practicum/react-developer-burger-ui-components
+2. Платформа обучения - https://practicum.yandex.ru/
+3. Пачка и информация - https://app.pachca.com/chats/5813648
+4. FIGMA - https://www.figma.com/file/zFGN2O5xktHl9VmoOieq5E/React-_-%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8_external_link?type=design&node-id=0-1&t=N1USssH60zkBvKWu-0
+5. Кастомные хуки на гитхабе - https://github.com/streamich/react-use
 
-In the project directory, you can run:
+## Информация по GIT<br>
 
-### `npm start`
+<a href="https://githowto.com/ru"> Интерактивный тур</a><br>
+<a href="https://learngitbranching.js.org/?locale=ru_RU"> Игра для обучения ветвлению</a><br>
+<a href="https://proglib.io/p/git-cheatsheet"> Шпаргалка по основным командам</a><br>
+<a href="https://github.com/nanisimova/texts/blob/main/tools/git_intro.md"> Еще одна шпаргалка</a><br>
+<a href="http://firstaidgit.ru/#/"> Коллекция часто задаваемых вопросов</a><br>
+<a href="https://dangitgit.com/ru"> Подборка частых факапов с их решениями</a><br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Вёрстка<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Гайд по флексбоксу - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- Игра для обучения флексам - https://flexboxfroggy.com/#ru
+- Игра для обучения флексам для тех, кто любит зомби (игра бесплатная, нужно только зарегистрироваться) - https://mastery.games/flexboxzombies/
+- Гайд по гридам - https://css-tricks.com/snippets/css/complete-guide-grid/
+- Игра для обучения гридам - https://cssgridgarden.com/#ru
+- Статья про min/max width/height - что и когда использовать - https://habr.com/ru/articles/483634/
+- Организация отступов в вёрстке - https://habr.com/ru/articles/340420/
+- Игра для тренировки css селекторов - https://flukeout.github.io/
+- Про медиазапросы - https://html5book.ru/css3-mediazaprosy
+- Про типичные проблемы с мобильной версткой и как их решать - https://habr.com/ru/companies/yandex/articles/307064/
 
-### `npm test`
+## Окружение<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Как правильно настроить линтер и форматтер для проекта на React - https://dev.to/eprikhodko/eslint-prettier-vs-code-create-react-app-airbnb-52bc#eslint-%D0%B2-create-react-app
+- Joshw Comeau useState useMemo - https://www.joshwcomeau.com/react/usememo-and-usecallback/
