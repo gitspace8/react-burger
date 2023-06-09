@@ -34,3 +34,11 @@
 
 - Как правильно настроить линтер и форматтер для проекта на React - https://dev.to/eprikhodko/eslint-prettier-vs-code-create-react-app-airbnb-52bc#eslint-%D0%B2-create-react-app
 - Joshw Comeau useState useMemo - https://www.joshwcomeau.com/react/usememo-and-usecallback/
+- Папка когорты - https://disk.yandex.ru/d/pkjsmZOU7UO_Nw
+- Практикум запустил новый курс по Git - https://practicum.yandex.ru/git-basics/
+- Курс по GIT - бесплатный - https://ru.hexlet.io/courses/intro_to_git
+- Скринкаст про сортировку DnD - https://disk.yandex.ru/i/b8cRSPO9L6Q4DA
+- DnD 3 варианта - https://disk.yandex.ru/d/9OD0tZZ1DBMB5Q
+- DND simple example - https://react-dnd.github.io/react-dnd/examples/dustbin/single-target
+- DND sort example - https://react-dnd.github.io/react-dnd/examples/sortable/simple
+- 
