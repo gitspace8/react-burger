@@ -41,4 +41,9 @@
 - DnD 3 варианта - https://disk.yandex.ru/d/9OD0tZZ1DBMB5Q
 - DND simple example - https://react-dnd.github.io/react-dnd/examples/dustbin/single-target
 - DND sort example - https://react-dnd.github.io/react-dnd/examples/sortable/simple
+- Видео по - (styled components) - https://disk.yandex.ru/i/0eX7oWvdfkWXjw
+- (styled components) Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS - https://styled-components.com/
+- пример №1 по styled components - https://codesandbox.io/s/css-in-js-forked-o586o?file=/src/App.tsx:1393-1401
+- пример №2 по styled components - https://codesandbox.io/s/design-system-forked-f2305?file=/src/App.js
+- ссылка к видео - https://www.figma.com/file/BsVoonUEIqf7pZcyIg3JyX/%D0%92%D0%B5%D0%B1%D0%B8%D0%BD%D0%B0%D1%80-19.05-%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0?type=design&node-id=0-1&t=SvO1ppqF2EypG4Kl-0
 - 
