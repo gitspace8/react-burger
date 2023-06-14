@@ -27,15 +27,6 @@ const App = () => {
                     <BurgerConstructor/>
                 </DndProvider>
             </div>
-            )
-            {/*{isLoading ? (<h1>Идет загрузка...</h1>) : hasError ? (<h1>Произошла ошибка</h1>) : (*/}
-            {/*    <div className={moduleStyles.columns}>*/}
-            {/*        <DndProvider backend={HTML5Backend}>*/}
-            {/*            <BurgerIngredients ingredients={ingredients}/>*/}
-            {/*            <Margin/>*/}
-            {/*            <BurgerConstructor ingredients={ingredients}/>*/}
-            {/*        </DndProvider>*/}
-            {/*    </div>)}*/}
         </div>
     </>)
 }

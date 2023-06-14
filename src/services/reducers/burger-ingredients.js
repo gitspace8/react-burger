@@ -1,9 +1,12 @@
-import {INGREDIENTS_TITLES} from "../../utils/config";
+import {INGREDIENTS_TITLES, INGREDIENT_TYPE} from "../../utils/config";
 import {
     CHANGE_TAB,
     GET_INGREDIENTS_FAILED,
     GET_INGREDIENTS_REQUEST,
     GET_INGREDIENTS_SUCCESS,
+    INCREASE_INGREDIENT,
+    DECREASE_INGREDIENT,
+    CHANGE_BUNS,
 } from "../actions/burger-ingredients";
 
 

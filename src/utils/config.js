@@ -1,8 +1,12 @@
 export const INGREDIENT_TYPE = {
-    BUN: 'bun', SAUCE: 'sauce', MAIN: 'main',
+    NOT_BUN: 'ingredient', BUN: 'bun', SAUCE: 'sauce', MAIN: 'main',
 };
 export const INGREDIENTS_TITLES = {
     BUN: 'Булки', SAUCE: 'Соусы', MAIN: 'Начинки',
+};
+export const DND_TYPES = {
+    CARD_FROM_INGREDIENTS: 'CARD_FROM_INGREDIENTS',
+    CARD_FROM_CONSTRUCTOR: 'CARD_FROM_CONSTRUCTOR',
 };
 export const TAB_ENABLE = false;
 export const KEY = 'Escape';
