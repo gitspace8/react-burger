@@ -32,7 +32,7 @@ const App = () => {
     function handleTest() {
         //dispatch({type: TEST_ACTION});
         //dispatch({ type: AUTH_REQUEST_SUCCESS, user: "Test",})
-        console.log("test2222");
+        console.log("test22223");
     }
 
     useEffect(() => {
