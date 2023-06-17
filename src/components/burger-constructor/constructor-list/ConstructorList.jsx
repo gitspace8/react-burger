@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import {ConstructorElement, DragIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import moduleStyles from './constructor-list.module.css';
 import {useSelector} from "react-redux";
 import ConstructorItem from "../constructor-item/ConstructorItem";
