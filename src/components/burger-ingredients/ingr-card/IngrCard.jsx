@@ -9,8 +9,7 @@ import {DND_TYPES} from "../../../utils/config";
 const IngrCard = ({ingredient, onSelect}) => {
     const {image, price, name, quantity} = ingredient;
     const [, dragRef] = useDrag({
-        type: DND_TYPES.CARD_FROM_INGREDIENTS,
-        item: ingredient,
+        type: DND_TYPES.CARD_FROM_INGREDIENTS, item: ingredient,
     });
     return (<li className={moduleStyles.card} onClick={() => onSelect(ingredient)} ref={dragRef}>
         <figure className={moduleStyles.card_container}>

@@ -4,7 +4,7 @@ import imageFile from '../../../images/image.svg'
 import {useSelector} from "react-redux";
 
 const OrderDetails = () => {
-    const { orderId } = useSelector(state => state.orderDetails);
+    const {orderId} = useSelector(state => state.orderDetails);
     return (
 
         <div className={`${moduleStyles.container} mt-30 mb-30`}>

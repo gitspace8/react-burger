@@ -1,7 +1,7 @@
 export function customMiddleware(store) {
     return (next) => (action) => {
 
-        // тестирую вывод
+        //  Использую customMiddleware для отладки и тестов
 
         console.log(action)
 

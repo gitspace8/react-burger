@@ -8,14 +8,10 @@ import ConstructorItem from "../constructor-item/ConstructorItem";
 const ConstructorList = ({onDelete}) => {
     const {ingredients} = useSelector(state => state.burgerConstructor);
     return (<div className={`${moduleStyles.container} custom-scroll pr-2`}>
-        {
-            ingredients.map((ingredient, index) => {
-                const {uuid} = ingredient;
-                return (
-                    <ConstructorItem key={uuid} ingredient={ingredient} index={index} onDelete={onDelete}/>
-                );
-            })
-        }
+        {ingredients.map((ingredient, index) => {
+            const {uuid} = ingredient;
+            return (<ConstructorItem key={uuid} ingredient={ingredient} index={index} onDelete={onDelete}/>);
+        })}
     </div>);
 }
 export default ConstructorList;

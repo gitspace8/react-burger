@@ -15,18 +15,15 @@ const ConstructorCard = ({ingredient, index, onDelete}) => {
     const mainRef = useRef(null);
 
     const [{isDragging}, dragRef] = useDrag({
-        type: DND_TYPES.CARD_FROM_CONSTRUCTOR,
-        item: () => {
+        type: DND_TYPES.CARD_FROM_CONSTRUCTOR, item: () => {
             return {uuid, index}
-        },
-        collect: (monitor) => ({
+        }, collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
     });
 
     const [, dropRef] = useDrop({
-        accept: DND_TYPES.CARD_FROM_CONSTRUCTOR,
-        hover: (item, monitor) => {
+        accept: DND_TYPES.CARD_FROM_CONSTRUCTOR, hover: (item, monitor) => {
             if (!mainRef.current) {
                 return
             }
@@ -46,9 +43,7 @@ const ConstructorCard = ({ingredient, index, onDelete}) => {
                 return
             }
             dispatch({
-                type: MOVE_INGR,
-                dragIndex: dragIndex,
-                hoverIndex: hoverIndex,
+                type: MOVE_INGR, dragIndex: dragIndex, hoverIndex: hoverIndex,
             });
             item.index = hoverIndex;
         }
@@ -56,18 +51,14 @@ const ConstructorCard = ({ingredient, index, onDelete}) => {
 
     dragRef(dropRef(mainRef));
 
-    return (
-        <li className={`${moduleStyles.item} ${isDragging && moduleStyles.item_drag}`} ref={mainRef}>
+    return (<li className={`${moduleStyles.item} ${isDragging && moduleStyles.item_drag}`} ref={mainRef}>
             <DragIcon type={"primary"}/>
             <ConstructorElement text={name} thumbnail={image} price={price} handleClose={() => onDelete(uuid, _id)}/>
-        </li>
-    );
+        </li>);
 }
 
 export default ConstructorCard
 
 ConstructorCard.propTypes = {
-    ingredient: ingredientPropTypes.isRequired,
-    index: PropTypes.number.isRequired,
-    onDelete: PropTypes.func.isRequired,
+    ingredient: ingredientPropTypes.isRequired, index: PropTypes.number.isRequired, onDelete: PropTypes.func.isRequired,
 };

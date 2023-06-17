@@ -17,13 +17,13 @@ export const getRemoteData = () => {
         .then(getResponse)
 };
 
-export const placeOrder = ({ ingredients }) => {
+export const placeOrder = ({ingredients}) => {
     return fetch(url_place_order, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ ingredients })
+        body: JSON.stringify({ingredients})
     })
         .then(getResponse)
 };

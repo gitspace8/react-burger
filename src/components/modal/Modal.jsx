@@ -9,7 +9,6 @@ import {createPortal} from "react-dom";
 const modalRoot = document.getElementById("react-modals");
 
 const Modal = ({children, title, onClose}) => {
-
     const handleEscClose = (e) => {
         if (e.key === KEY) {
             onClose();

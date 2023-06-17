@@ -27,8 +27,9 @@ const App = () => {
         dispatch({type: CLOSE_INGR_DETAILS_MODAL});
         dispatch({type: UNSELECT_INGREDIENT});
     }
+
     function handleCloseOrderDetailsModal() {
-        dispatch({ type: CLOSE_ORDER_DETAILS_MODAL });
+        dispatch({type: CLOSE_ORDER_DETAILS_MODAL});
     }
 
     return (<>
@@ -42,20 +43,12 @@ const App = () => {
                 </DndProvider>
             </div>
         </div>
-        {
-            ingredientDetailsModal && (
-                <Modal onClose={handleCloseIngrDetailsModal} title={'Детали ингредиента'}>
-                    <IngrDetail/>
-                </Modal>
-            )
-        }
-        {
-            orderDetailsModal && (
-                <Modal onClose={handleCloseOrderDetailsModal}>
-                    <OrderDetails />
-                </Modal>
-            )
-        }
+        {ingredientDetailsModal && (<Modal onClose={handleCloseIngrDetailsModal} title={'Детали ингредиента'}>
+                <IngrDetail/>
+            </Modal>)}
+        {orderDetailsModal && (<Modal onClose={handleCloseOrderDetailsModal}>
+                <OrderDetails/>
+            </Modal>)}
     </>)
 }
 export default App

@@ -9,14 +9,14 @@ import CustomElement from "../custom-element/CustomElement";
 const Bun = ({type}) => {
     const {bun} = useSelector(state => state.burgerConstructor);
     return (<li className={moduleStyles.bun}>
-            {bun ? <ConstructorElement
-                type={type}
-                isLocked={true}
-                text={`${bun.name}\n${type === BUN_TYPE.TOP ? '(верх)' : '(низ)'} `}
-                thumbnail={bun.image}
-                price={bun.price}
-            /> : <CustomElement type={type}>Выберите булку</CustomElement>}
-        </li>);
+        {bun ? <ConstructorElement
+            type={type}
+            isLocked={true}
+            text={`${bun.name}\n${type === BUN_TYPE.TOP ? '(верх)' : '(низ)'} `}
+            thumbnail={bun.image}
+            price={bun.price}
+        /> : <CustomElement type={type}>Выберите булку</CustomElement>}
+    </li>);
 }
 
 export default Bun;
