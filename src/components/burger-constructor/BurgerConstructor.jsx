@@ -1,20 +1,19 @@
 import React from 'react';
 import moduleStyles from './burger-constructor.module.css'
 import ConstructorList from "./constructor-list/ConstructorList";
-import PropTypes from "prop-types";
-import {ingredientPropTypes} from "../../utils/constants-prop-types";
 import {Button, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {useDispatch, useSelector} from "react-redux";
 import {useDrop} from "react-dnd";
-import {DND_TYPES, INGREDIENT_TYPE} from "../../utils/config";
+import {BUN_TYPE, DND_TYPES, INGREDIENT_TYPE} from "../../utils/config";
 import {CHANGE_BUNS, DECREASE_INGREDIENT, INCREASE_INGREDIENT} from "../../services/actions/burger-ingredients";
 import {ADD_INGR, DELETE_INGR, SET_BUNS} from "../../services/actions/burger-constructor";
 import {v4 as uuid} from "uuid";
+import Bun from "./bun/Bun";
 
 const BurgerConstructor = () => {
     const dispatch = useDispatch();
     const constructorIngredients = useSelector(state => state.burgerConstructor.ingredients);
-    const {selectedBun} = useSelector(state => state.burgerConstructor);
+    const {bun} = useSelector(state => state.burgerConstructor);
 
     const [, dropTargetRef] = useDrop({
         accept: DND_TYPES.CARD_FROM_INGREDIENTS, drop(ingredient) {
@@ -53,12 +52,10 @@ const BurgerConstructor = () => {
                 return acc + cur.price;
             }
             return acc;
-        }, 0) + (selectedBun ? 2 * selectedBun.price : 0);
-    }, [constructorIngredients, selectedBun]);
-
-
+        }, 0) + (bun ? 2 * bun.price : 0);
+    }, [constructorIngredients, bun]);
     const handlePlaceOrder = () => {
-        const order = [selectedBun._id, ...constructorIngredients.map((ingredient) => ingredient._id), selectedBun._id];
+        const order = [bun._id, ...constructorIngredients.map((ingredient) => ingredient._id), bun._id];
         //dispatch();
     }
 
@@ -73,9 +70,9 @@ const BurgerConstructor = () => {
 
     return (<section className={`${moduleStyles.mainContainer} mt-25`} ref={dropTargetRef}>
         <ul className={`${moduleStyles.list}`}>
-            <h2>Булка верх</h2>
+            {<Bun type={BUN_TYPE.TOP}/>}
             <ConstructorList onDelete={handleDeleteClick}/>
-            <h2>Булка низ</h2>
+            {bun ? (<Bun type={BUN_TYPE.BOTTOM}/>) : null}
         </ul>
         <div className={`${moduleStyles.container} mt-10 mr-4`}>
         <span className="text text_type_digits-medium mr-10">
@@ -86,12 +83,11 @@ const BurgerConstructor = () => {
                 size="large"
                 htmlType="button"
                 onClick={handlePlaceOrder}
-                disabled={!selectedBun}
+                disabled={!bun}
             >
                 Оформить заказ
             </Button>
         </div>
     </section>)
 }
-
 export default BurgerConstructor
