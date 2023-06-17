@@ -1,10 +1,11 @@
 import React from 'react';
 import moduleStyles from './ingr-detail.module.css';
-import {ingredientPropTypes} from "../../../utils/constants-prop-types";
+import {useSelector} from "react-redux";
 
 
-const IngrDetail = ({ingredient}) => {
-    const {image_large, name, calories, carbohydrates, fat, proteins} = ingredient;
+const IngrDetail = () => {
+    const {selectedIngredient} = useSelector(state => state.ingredientDetails);
+    const {image_large, name, calories, carbohydrates, fat, proteins} = selectedIngredient;
     return (<figure className={`${moduleStyles.container}`}>
         <img className={`${moduleStyles.image}`} src={image_large} alt={name}/>
         <figcaption className={`${moduleStyles.caption} mt-4`}>
@@ -38,9 +39,4 @@ const IngrDetail = ({ingredient}) => {
         </figcaption>
     </figure>)
 }
-
 export default IngrDetail;
-
-IngrDetail.propTypes = {
-    ingredient: ingredientPropTypes.isRequired
-};
