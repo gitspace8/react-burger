@@ -9,6 +9,7 @@ import {CHANGE_BUNS, DECREASE_INGREDIENT, INCREASE_INGREDIENT} from "../../servi
 import {ADD_INGR, DELETE_INGR, SET_BUNS} from "../../services/actions/burger-constructor";
 import {v4 as uuid} from "uuid";
 import Bun from "./bun/Bun";
+import {placeOrderAction} from "../../services/actions/order-details";
 
 const BurgerConstructor = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,6 @@ const BurgerConstructor = () => {
     });
 
     function handleOnDrop(ingredient) {
-        console.log(ingredient)
         const {_id, type} = ingredient;
         switch (type) {
             case INGREDIENT_TYPE.BUN: {
@@ -56,7 +56,7 @@ const BurgerConstructor = () => {
     }, [constructorIngredients, bun]);
     const handlePlaceOrder = () => {
         const order = [bun._id, ...constructorIngredients.map((ingredient) => ingredient._id), bun._id];
-        //dispatch();
+        dispatch(placeOrderAction(order));
     }
 
     function handleDeleteClick(uuid, _id) {

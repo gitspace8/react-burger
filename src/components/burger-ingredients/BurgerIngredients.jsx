@@ -39,7 +39,6 @@ const BurgerIngredients = () => {
     }
 
     function handleIngredientClick(ingredient) {
-        console.log(ingredient);
         dispatch(selectIngredient(ingredient));
         dispatch({
             type: OPEN_INGR_DETAILS_MODAL,

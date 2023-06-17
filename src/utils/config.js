@@ -11,4 +11,5 @@ export const DND_TYPES = {
 export const TAB_ENABLE = false;
 export const KEY = 'Escape';
 export const url = 'https://norma.nomoreparties.space/api/ingredients';
+export const url_place_order = 'https://norma.nomoreparties.space/api/orders';
 export const BUN_TYPE = {TOP: 'top', BOTTOM: 'bottom'};
