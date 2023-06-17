@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getIngredients} from "../../services/actions/burger-ingredients";
 import Modal from "../modal/Modal";
 import IngrDetail from "../burger-ingredients/ingr-detail/IngrDetail";
-import {CLOSE_INGR_DETAILS_MODAL, UNSELECT_INGREDIENT} from "../../services/actions/ingr-details";
+import {CLOSE_INGREDIENT_DETAILS_MODAL, UNSELECT_INGREDIENT} from "../../services/actions/ingr-details";
 import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 import {CLOSE_ORDER_DETAILS_MODAL} from "../../services/actions/order-details";
 import OrderDetails from "../burger-constructor/order-details/OrderDetails";
@@ -24,7 +24,7 @@ const App = () => {
     }, [dispatch]);
 
     function handleCloseIngrDetailsModal() {
-        dispatch({type: CLOSE_INGR_DETAILS_MODAL});
+        dispatch({type: CLOSE_INGREDIENT_DETAILS_MODAL});
         dispatch({type: UNSELECT_INGREDIENT});
     }
 

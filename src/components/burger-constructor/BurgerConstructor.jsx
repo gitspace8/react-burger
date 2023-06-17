@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useDrop} from "react-dnd";
 import {BUN_TYPE, DND_TYPES, INGREDIENT_TYPE} from "../../utils/config";
 import {CHANGE_BUNS, DECREASE_INGREDIENT, INCREASE_INGREDIENT} from "../../services/actions/burger-ingredients";
-import {ADD_INGR, DELETE_INGR, SET_BUNS} from "../../services/actions/burger-constructor";
+import {ADD_INGREDIENT, DELETE_INGREDIENT, SET_BUNS} from "../../services/actions/burger-constructor";
 import {v4 as uuid} from "uuid";
 import Bun from "./bun/Bun";
 import {placeOrderAction} from "../../services/actions/order-details";
@@ -39,7 +39,7 @@ const BurgerConstructor = () => {
                     type: INCREASE_INGREDIENT, _id: _id,
                 });
                 dispatch({
-                    type: ADD_INGR, ingredient: {...ingredient, uuid: uuid()},
+                    type: ADD_INGREDIENT, ingredient: {...ingredient, uuid: uuid()},
                 });
                 break;
             }
@@ -61,7 +61,7 @@ const BurgerConstructor = () => {
 
     function handleDeleteClick(uuid, _id) {
         dispatch({
-            type: DELETE_INGR, uuid: uuid,
+            type: DELETE_INGREDIENT, uuid: uuid,
         });
         dispatch({
             type: DECREASE_INGREDIENT, _id: _id,

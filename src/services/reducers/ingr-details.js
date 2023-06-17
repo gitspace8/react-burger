@@ -1,8 +1,8 @@
 import {
     SELECT_INGREDIENT,
     UNSELECT_INGREDIENT,
-    OPEN_INGR_DETAILS_MODAL,
-    CLOSE_INGR_DETAILS_MODAL,
+    OPEN_INGREDIENT_DETAILS_MODAL,
+    CLOSE_INGREDIENT_DETAILS_MODAL,
 } from "../actions/ingr-details";
 
 const initialState = {
@@ -24,13 +24,13 @@ export const ingredientDetailsReducer = (state = initialState, action) => {
                 selectedIngredient: null,
             }
         }
-        case OPEN_INGR_DETAILS_MODAL: {
+        case OPEN_INGREDIENT_DETAILS_MODAL: {
             return {
                 ...state,
                 modalIsOpen: true,
             }
         }
-        case CLOSE_INGR_DETAILS_MODAL: {
+        case CLOSE_INGREDIENT_DETAILS_MODAL: {
             return {
                 ...state,
                 modalIsOpen: false,

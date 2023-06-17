@@ -4,7 +4,7 @@ import {INGREDIENT_TYPE, INGREDIENTS_TITLES} from "../../utils/config";
 import IngrTab from "./ingr-tab/IngrTab";
 import IngrList from "./Ingr-list/IngrList";
 import {useDispatch, useSelector} from "react-redux";
-import {OPEN_INGR_DETAILS_MODAL, selectIngredient} from "../../services/actions/ingr-details";
+import {OPEN_INGREDIENT_DETAILS_MODAL, selectIngredient} from "../../services/actions/ingr-details";
 import {CHANGE_TAB} from "../../services/actions/burger-ingredients";
 
 const BurgerIngredients = () => {
@@ -41,7 +41,7 @@ const BurgerIngredients = () => {
     function handleIngredientClick(ingredient) {
         dispatch(selectIngredient(ingredient));
         dispatch({
-            type: OPEN_INGR_DETAILS_MODAL,
+            type: OPEN_INGREDIENT_DETAILS_MODAL,
         });
     }
 

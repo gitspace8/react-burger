@@ -1,4 +1,4 @@
-export const ADD_INGR = 'ADD_INGR';
-export const MOVE_INGR = 'MOVE_INGR';
-export const DELETE_INGR = 'DELETE_INGR';
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export const MOVE_INGREDIENT = 'MOVE_INGREDIENT';
+export const DELETE_INGREDIENT = 'DELETE_INGREDIENT';
 export const SET_BUNS = 'SET_BUNS';

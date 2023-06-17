@@ -1,4 +1,4 @@
-import {ADD_INGR, DELETE_INGR, MOVE_INGR, SET_BUNS,} from "../actions/burger-constructor";
+import {ADD_INGREDIENT, DELETE_INGREDIENT, MOVE_INGREDIENT, SET_BUNS,} from "../actions/burger-constructor";
 
 const initialState = {
     ingredients: [],
@@ -12,19 +12,19 @@ export const burgerConstructorReducer = (state = initialState, action) => {
                 bun: action.bun,
             }
         }
-        case ADD_INGR: {
+        case ADD_INGREDIENT: {
             return {
                 ...state,
                 ingredients: [action.ingredient, ...state.ingredients],
             }
         }
-        case DELETE_INGR: {
+        case DELETE_INGREDIENT: {
             return {
                 ...state,
                 ingredients: [...state.ingredients].filter((ingredient) => ingredient.uuid !== action.uuid)
             }
         }
-        case MOVE_INGR: {
+        case MOVE_INGREDIENT: {
             const newIngredients = [...state.ingredients];
             [ newIngredients[action.dragIndex], newIngredients[action.hoverIndex] ] = [ newIngredients[action.hoverIndex], newIngredients[action.dragIndex] ];
             return {

@@ -1,4 +1,4 @@
-import {url, url_place_order} from "./config";
+import {url} from "./config";
 
 const getResponse = (res) => {
     if (res.ok) {
@@ -13,12 +13,12 @@ const getResponse = (res) => {
     }
 };
 export const getRemoteData = () => {
-    return fetch(url, {})
+    return fetch(`${url}/ingredients`, {})
         .then(getResponse)
 };
 
 export const placeOrder = ({ingredients}) => {
-    return fetch(url_place_order, {
+    return fetch(`${url}/orders`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"

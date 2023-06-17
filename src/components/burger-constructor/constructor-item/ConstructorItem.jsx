@@ -4,7 +4,7 @@ import {ConstructorElement, DragIcon} from "@ya.praktikum/react-developer-burger
 import moduleStyles from "./constructor-item.module.css"
 import {useDrag, useDrop} from "react-dnd";
 import {DND_TYPES} from "../../../utils/config";
-import {MOVE_INGR} from "../../../services/actions/burger-constructor";
+import {MOVE_INGREDIENT} from "../../../services/actions/burger-constructor";
 import {ingredientPropTypes} from "../../../utils/constants-prop-types";
 import PropTypes from "prop-types";
 
@@ -43,7 +43,7 @@ const ConstructorCard = ({ingredient, index, onDelete}) => {
                 return
             }
             dispatch({
-                type: MOVE_INGR, dragIndex: dragIndex, hoverIndex: hoverIndex,
+                type: MOVE_INGREDIENT, dragIndex: dragIndex, hoverIndex: hoverIndex,
             });
             item.index = hoverIndex;
         }
