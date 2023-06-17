@@ -12,7 +12,7 @@ const IngrCard = ({ingredient, onSelect}) => {
         type: DND_TYPES.CARD_FROM_INGREDIENTS,
         item: ingredient,
     });
-    return (<li className={moduleStyles.card} onClick={() => onSelect(ingredient)}>
+    return (<li className={moduleStyles.card} onClick={() => onSelect(ingredient)} ref={dragRef}>
         <figure className={moduleStyles.card_container}>
             <img className="ml-4 mr-4" src={image} alt={name}/>
             <figcaption className={moduleStyles.caption_container}>

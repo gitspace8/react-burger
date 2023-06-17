@@ -19,10 +19,18 @@ export const burgerConstructorReducer = (state = initialState, action) => {
             }
         }
         case DELETE_INGR: {
-            return state;
+            return {
+                ...state,
+                ingredients: [...state.ingredients].filter((ingredient) => ingredient.uuid !== action.uuid)
+            }
         }
         case MOVE_INGR: {
-            return state;
+            const newIngredients = [...state.ingredients];
+            [ newIngredients[action.dragIndex], newIngredients[action.hoverIndex] ] = [ newIngredients[action.hoverIndex], newIngredients[action.dragIndex] ];
+            return {
+                ...state,
+                ingredients: newIngredients,
+            }
         }
         default: {
             return state;

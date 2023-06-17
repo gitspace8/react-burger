@@ -3,7 +3,7 @@ import moduleStyles from './burger-constructor.module.css'
 import ConstructorList from "./constructor-list/ConstructorList";
 import PropTypes from "prop-types";
 import {ingredientPropTypes} from "../../utils/constants-prop-types";
-import {Button, ConstructorElement, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
+import {Button, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {useDispatch, useSelector} from "react-redux";
 import {useDrop} from "react-dnd";
 import {DND_TYPES, INGREDIENT_TYPE} from "../../utils/config";
@@ -14,42 +14,39 @@ import {v4 as uuid} from "uuid";
 const BurgerConstructor = () => {
     const dispatch = useDispatch();
     const constructorIngredients = useSelector(state => state.burgerConstructor.ingredients);
-    const { selectedBun } = useSelector(state => state.burgerConstructor);
+    const {selectedBun} = useSelector(state => state.burgerConstructor);
 
     const [, dropTargetRef] = useDrop({
-        accept: DND_TYPES.CARD_FROM_INGREDIENTS,
-        drop(ingredient) {
+        accept: DND_TYPES.CARD_FROM_INGREDIENTS, drop(ingredient) {
             handleOnDrop(ingredient);
         }
     });
-    function handleOnDrop(ingredient) {
-        const { _id, type } = ingredient;
 
+    function handleOnDrop(ingredient) {
+        console.log(ingredient)
+        const {_id, type} = ingredient;
         switch (type) {
             case INGREDIENT_TYPE.BUN: {
                 dispatch({
-                    type: CHANGE_BUNS,
-                    _id: _id,
+                    type: CHANGE_BUNS, _id: _id,
                 });
                 dispatch({
-                    type: SET_BUNS,
-                    bun: ingredient,
+                    type: SET_BUNS, bun: ingredient,
                 });
                 break;
             }
             default: {
                 dispatch({
-                    type: INCREASE_INGREDIENT,
-                    _id: _id,
+                    type: INCREASE_INGREDIENT, _id: _id,
                 });
                 dispatch({
-                    type: ADD_INGR,
-                    ingredient: { ...ingredient, uuid: uuid() },
+                    type: ADD_INGR, ingredient: {...ingredient, uuid: uuid()},
                 });
                 break;
             }
         }
     }
+
     const totalCost = React.useMemo(() => {
         return constructorIngredients.reduce((acc, cur) => {
             if (cur.price) {
@@ -67,14 +64,13 @@ const BurgerConstructor = () => {
 
     function handleDeleteClick(uuid, _id) {
         dispatch({
-            type: DELETE_INGR,
-            uuid: uuid,
+            type: DELETE_INGR, uuid: uuid,
         });
         dispatch({
-            type: DECREASE_INGREDIENT,
-            _id: _id,
+            type: DECREASE_INGREDIENT, _id: _id,
         })
     }
+
     return (<section className={`${moduleStyles.mainContainer} mt-25`} ref={dropTargetRef}>
         <ul className={`${moduleStyles.list}`}>
             <h2>Булка верх</h2>
@@ -99,7 +95,3 @@ const BurgerConstructor = () => {
 }
 
 export default BurgerConstructor
-
-BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropTypes.isRequired).isRequired,
-}
