@@ -10,6 +10,7 @@ import {getIngredients} from "../../services/actions/burger-ingredients";
 import Modal from "../modal/Modal";
 import IngrDetail from "../burger-ingredients/ingr-detail/IngrDetail";
 import {CLOSE_INGR_DETAILS_MODAL, UNSELECT_INGREDIENT} from "../../services/actions/ingr-details";
+import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const App = () => {
                 <DndProvider backend={HTML5Backend}>
                     <BurgerIngredients/>
                     <Margin/>
-                    {/*<BurgerConstructor/>*/}
+                    <BurgerConstructor/>
                 </DndProvider>
             </div>
         </div>
