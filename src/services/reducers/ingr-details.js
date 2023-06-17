@@ -3,7 +3,7 @@ import {
     UNSELECT_INGREDIENT,
     OPEN_INGR_DETAILS_MODAL,
     CLOSE_INGR_DETAILS_MODAL,
-} from "../actions/ingredient-details";
+} from "../actions/ingr-details";
 
 const initialState = {
     selectedIngredient: null,

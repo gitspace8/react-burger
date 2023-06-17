@@ -24,7 +24,7 @@ const App = () => {
                 <DndProvider backend={HTML5Backend}>
                     <BurgerIngredients/>
                     <Margin/>
-                    <BurgerConstructor/>
+                    {/*<BurgerConstructor/>*/}
                 </DndProvider>
             </div>
         </div>
