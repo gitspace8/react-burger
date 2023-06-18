@@ -1,48 +1,78 @@
 import React from 'react';
 import moduleStyles from './burger-constructor.module.css'
 import ConstructorList from "./constructor-list/ConstructorList";
-import PropTypes from "prop-types";
-import {ingredientPropTypes} from "../../utils/constants-prop-types";
-import OrderDetails from "./order-details/OrderDetails";
-import Modal from "../modal/Modal";
-import {Button, ConstructorElement, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
+import {Button, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
+import {useDispatch, useSelector} from "react-redux";
+import {useDrop} from "react-dnd";
+import {BUN_TYPE, DND_TYPES, INGREDIENT_TYPE} from "../../utils/config";
+import {CHANGE_BUNS, DECREASE_INGREDIENT, INCREASE_INGREDIENT} from "../../services/actions/burger-ingredients";
+import {ADD_INGREDIENT, DELETE_INGREDIENT, SET_BUNS} from "../../services/actions/burger-constructor";
+import {v4 as uuid} from "uuid";
+import Bun from "./bun/Bun";
+import {placeOrderAction} from "../../services/actions/order-details";
 
-const BurgerConstructor = ({ingredients}) => {
+const BurgerConstructor = () => {
+    const dispatch = useDispatch();
+    const constructorIngredients = useSelector(state => state.burgerConstructor.ingredients);
+    const {bun} = useSelector(state => state.burgerConstructor);
 
-    // вручную выбираем булку, используем useMemo/useCallback что бы кэшировать
-    const bunStatic = React.useMemo(() => ingredients.find((ingredient) => ingredient._id === '643d69a5c3f7b9001cfa093c'), [ingredients])
-    const {name, price, image} = bunStatic
-    // считаем 2 булки статик + все элементы
-    let totalCost = (bunStatic.price * 2);
-    ingredients.forEach((item) => totalCost += item.price)
-    const [isOpen, setIsOpen] = React.useState(false)
-    const handleCloseModal = () => {
-        setIsOpen(false)
+    const [, dropTargetRef] = useDrop({
+        accept: DND_TYPES.CARD_FROM_INGREDIENTS, drop(ingredient) {
+            handleOnDrop(ingredient);
+        }
+    });
+
+    function handleOnDrop(ingredient) {
+        const {_id, type} = ingredient;
+        switch (type) {
+            case INGREDIENT_TYPE.BUN: {
+                dispatch({
+                    type: CHANGE_BUNS, _id: _id,
+                });
+                dispatch({
+                    type: SET_BUNS, bun: ingredient,
+                });
+                break;
+            }
+            default: {
+                dispatch({
+                    type: INCREASE_INGREDIENT, _id: _id,
+                });
+                dispatch({
+                    type: ADD_INGREDIENT, ingredient: {...ingredient, uuid: uuid()},
+                });
+                break;
+            }
+        }
     }
+
+    const totalCost = React.useMemo(() => {
+        return constructorIngredients.reduce((acc, cur) => {
+            if (cur.price) {
+                return acc + cur.price;
+            }
+            return acc;
+        }, 0) + (bun ? 2 * bun.price : 0);
+    }, [constructorIngredients, bun]);
     const handlePlaceOrder = () => {
-        setIsOpen(true)
+        const order = [bun._id, ...constructorIngredients.map((ingredient) => ingredient._id), bun._id];
+        dispatch(placeOrderAction(order));
     }
-    return (<section className={`${moduleStyles.mainContainer} mt-25`}>
+
+    function handleDeleteClick(uuid, _id) {
+        dispatch({
+            type: DELETE_INGREDIENT, uuid: uuid,
+        });
+        dispatch({
+            type: DECREASE_INGREDIENT, _id: _id,
+        })
+    }
+
+    return (<section className={`${moduleStyles.mainContainer} mt-25`} ref={dropTargetRef}>
         <ul className={`${moduleStyles.list}`}>
-            <li className="ml-8">
-                <ConstructorElement
-                    type="top"
-                    isLocked={true}
-                    text={`${name} \n(верх)`}
-                    thumbnail={image}
-                    price={price}
-                />
-            </li>
-            <ConstructorList ingredients={ingredients}/>
-            <li className="ml-8">
-                <ConstructorElement
-                    type="bottom"
-                    isLocked={true}
-                    text={`${name} \n(низ)`}
-                    thumbnail={image}
-                    price={price}
-                />
-            </li>
+            {<Bun type={BUN_TYPE.TOP}/>}
+            <ConstructorList onDelete={handleDeleteClick}/>
+            {bun ? (<Bun type={BUN_TYPE.BOTTOM}/>) : null}
         </ul>
         <div className={`${moduleStyles.container} mt-10 mr-4`}>
         <span className="text text_type_digits-medium mr-10">
@@ -53,18 +83,11 @@ const BurgerConstructor = ({ingredients}) => {
                 size="large"
                 htmlType="button"
                 onClick={handlePlaceOrder}
+                disabled={!bun}
             >
                 Оформить заказ
             </Button>
         </div>
-        <Modal isOpen={isOpen} onClose={handleCloseModal}>
-            <OrderDetails/>
-        </Modal>
     </section>)
 }
-
 export default BurgerConstructor
-
-BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropTypes.isRequired).isRequired,
-}
